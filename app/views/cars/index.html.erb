@@ -1,0 +1,20 @@
+<div class="search-bar">
+  <form class="d-flex" action="/cars" accept-charset="UTF-8" method="get" style="width:95%">
+    <input type="text" name="query" id="query" value="" class="input-search" style="width:100%" placeholder="Find a car">
+    <button type="submit" name="commit" class="loupe" data-disable-with="Search">
+      <i class="fas fa-search" id="search-icon"></i>
+    </button>
+  </form>
+</div>
+
+<div class="cards-cars">
+    <% @cars.each do |car| %>
+      <%= link_to car_path(car), class:"car-index-links", :action => 'go' do %>
+        <div class="card-car">
+            <h2><%= car.name %></h2>
+            <p><%= car.brand %></p>
+        </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
