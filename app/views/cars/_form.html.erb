@@ -1,0 +1,10 @@
+<div class="container">
+  <%= simple_form_for [@car] do |f| %>
+    <%= f.input :name, as: :string, :label => "Model", input_html: { class: "input" }%>
+    <%= f.input :brand, as: :string, :label => "Brand", input_html: { class: "input" }%>
+    <%= f.input :kilometers, as: :integer, :label => "Kilometers", input_html: { class: "input" }%>
+    <%= f.input :photo, as: :file, :label => "upload a picture", input_html: { class: "input" }%>
+    <%= f.submit "Rent my car", :class => "create" %>
+  <% end %>
+</div>
+<br>

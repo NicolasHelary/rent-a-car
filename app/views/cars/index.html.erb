@@ -1,5 +1,5 @@
 <div class="search-bar">
-  <form class="d-flex" action="/cars" accept-charset="UTF-8" method="get" style="width:95%">
+  <form class="d-flex" action="/cars" accept-charset="UTF-8" method="get">
     <input type="text" name="query" id="query" value="" class="input-search" style="width:100%" placeholder="Find a car">
     <button type="submit" name="commit" class="loupe" data-disable-with="Search">
       <i class="fas fa-search" id="search-icon"></i>
@@ -8,13 +8,47 @@
 </div>
 
 <div class="cards-cars">
+  <div class="row">
     <% @cars.each do |car| %>
-      <%= link_to car_path(car), class:"car-index-links", :action => 'go' do %>
-        <div class="card-car">
-            <h2><%= car.name %></h2>
-            <p><%= car.brand %></p>
-        </div>
-    <% end %>
-    <% end %>
+    <div class="col-sm">
+      <div class="card-trip">
+        <%= link_to car_path(car), class:"car-index-links", :action => 'go' do %>
+        <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill %>
+          <div class="card-trip-infos">
+            <div class="card-car">
+              <h2><%= car.name %></h2>
+              <p><%= car.brand %></p>
+            </div>
+            <h2 class="card-trip-pricing">rent this car</h2>
+            <%= cl_image_tag car.user.pp.key, class: "card-trip-user avatar-bordered", crop: :fill %>
+            </div>
+
+          </div>
+
+      <% end %>
+
+      </div>
+      <% end %>
+
+    </div>
   </div>
 </div>
+
+<%# <div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title here</h2>
+      <p>Short description here!</p>
+    </div>
+    <h2 class="card-trip-pricing">£99.99</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+ %>
+
+
+
+
+<%#= cl_image_tag('boris02_Ferrari_Enzo.jpg_fuperr',
+      width: 150, height: 150) %>
